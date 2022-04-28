@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+       int n=s.length();
+        int count=0;
+        int i,j;
+            for(i=0;i<n;i++)
+            {
+                vector<bool>visted(256);
+                for(j=i;j<n;j++)
+                {
+                    if(visted[s[j]]==true)
+                        break;
+                    else
+                        count=max(count,j-i+1);
+                    visted[s[j]]=true;
+                }
+                visted[s[i]]=false;
+            }  
+        return count;
+    }
+};

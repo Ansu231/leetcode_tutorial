@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int win(vector<int>&nums,int s,int e,int chance)
+    {
+        if(s==e){
+            return nums[s];
+        }
+        int chance_start=chance*nums[s]+win(nums,s+1,e,-chance);
+        int chance_end=chance*nums[e]+win(nums,s,e-1,-chance);
+        return chance*max(chance*chance_start , chance*chance_end);
+        
+    }
+    bool PredictTheWinner(vector<int>& nums) {
+        int n=nums.size();
+        return win(nums,0,n-1,1)>=0;
+    }
+};

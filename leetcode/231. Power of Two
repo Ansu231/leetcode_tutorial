@@ -1,0 +1,11 @@
+//easy solution for bit manipulation power of teo it is one of the algorithm in bit manipulation 
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+         if(n==0) return false;
+        else{
+            while (n%2==0) n/=2;
+            return (n==1);  
+        }
+    }
+};

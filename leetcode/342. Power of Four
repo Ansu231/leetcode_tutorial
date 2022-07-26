@@ -1,0 +1,13 @@
+//this leetcode question is as similar as the power of two and one more questions which is similar in leetcode is the power of three 
+//the approach is the same but we need to do is have to change the value 
+//solution of power of four
+class Solution {
+public:
+    bool isPowerOfFour(int n) {
+        if(n==0) return false;
+        else{
+            while (n%4==0) n/=4;
+            return (n==1);  
+        }
+    }
+};

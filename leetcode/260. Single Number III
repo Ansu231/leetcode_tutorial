@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        int XOR = 0;
+        
+        for(int i = 0 ; i < nums.size() ; i++){
+            XOR = XOR ^ nums[i];
+        }
+        
+        
+        if(XOR==0){
+            return {};
+        }
+        int count = 0;
+        while(XOR){
+        if(XOR & 1){
+            break;
+        }
+            count++;
+            XOR = XOR>>1;
+        }
+        
+        int XOR1 = 0;
+        int XOR2 = 0;
+        
+        for(int i = 0 ;i < nums.size(); i++ ){
+            if(nums[i] & (1<<count)){       
+                XOR1 = XOR1^nums[i];
+            }
+            else{
+                XOR2 = XOR2^nums[i];
+            }
+        }    
+        vector<int>ans = {XOR1 , XOR2};
+        
+        return ans;
+    }
+};
